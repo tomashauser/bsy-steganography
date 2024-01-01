@@ -9,6 +9,8 @@ In terms of dependencies for the controller.py, I think that this should be enou
 1. `pip install dropbox stegano psutil`
 2. `apt-get update && apt-get install -y libgl1-mesa-glx`
 
+If you have any problems with running the app, contact me on Matrix, I'm hauseto2.
+
 # Supported commands: 
 1. `[bot_num]: ls [path]?`
     - Returns the contents of [path] (or of `'.'` if [path] is not included).
