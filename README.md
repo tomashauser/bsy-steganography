@@ -2,7 +2,7 @@
 
 1. Put the dropbox token into .env
 2. Run the bots with `docker-compose up --build`
-3. Run the controller/controller.py
+3. Run the controller/controller.py [docker_token]
 
 In terms of dependencies for the controller.py, I think that this should be enough:
 
