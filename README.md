@@ -2,12 +2,14 @@
 
 1. Put the dropbox token into .env
 2. Run the bots with `docker-compose up --build`
-3. Run the `controller/controller.py` with the docker token in the program argument
+3. Run the `controller/controller.py` with the dropbox token in the program argument
 
 In terms of dependencies for the controller.py, I think that this should be enough:
 
 1. `pip install dropbox stegano psutil`
 2. `apt-get update && apt-get install -y libgl1-mesa-glx`
+
+If you have any problems with running the app, contact me on Matrix, I'm hauseto2.
 
 # Supported commands: 
 1. `[bot_num]: ls [path]?`
