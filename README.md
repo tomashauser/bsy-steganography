@@ -1,9 +1,20 @@
 # Instructions
 
 1. Put the dropbox token into .env
-2. Run the bots with `docker-compose up --build`
-3. Run the `controller/controller.py` with the dropbox token in the program argument
+2. Make sure you're in the `the-great-journey` directory
+3. Run the bots with `docker-compose up --build`
+4. Run the controller via `python -m controller.controller ${DROPBOX_TOKEN}`
+5. You should see the controller say `Conroller is aware of 3 bots`
 
+# Sample run
+1. `0: ls ./temp`
+2. `0: copy controller/Controller.py` (now the file will be saved into the temp directory of the bot)
+3. `0: ls ./temp` (now you should also see the `Controller.py` file there)
+4. `1: id`
+5. `1: w` (the docker doesn't have any users, so it probably returns an empty array)
+6. `2: exec ./hello.sh` (you'll see the output in the bot console)
+
+# Dependencies
 In terms of dependencies for the controller.py, I think that this should be enough:
 
 1. `pip install dropbox stegano psutil`
