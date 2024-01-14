@@ -16,4 +16,6 @@ ENV BOT_ID=0
 ENV DROPBOX_TOKEN='SAMPLE_TOKEN'
 ENV PYTHONPATH="${PYTHONPATH}:/usr/src/app"
 
+RUN chmod +x bot/hello.sh
+
 CMD python bot/bot.py $BOT_ID $DROPBOX_TOKEN

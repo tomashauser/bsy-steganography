@@ -181,8 +181,11 @@ def main():
                 dropbox_session.download_file(MY_FOLDER_PATH + f"/{new_file_name}", "./temp/txt_file.txt")
                 path_length = extract_length_from_filename(new_file_name)
                 path_to_file = recover_hidden_message("./temp/txt_file.txt", path_length)
-                result = run_binary(path_to_file)
-                print(result)
+                try:
+                    result = run_binary(path_to_file)
+                    print(result)
+                except Exception as e:
+                    print(e)
 
 if __name__ == '__main__':
     script_dir = os.path.dirname(os.path.abspath(__file__))
