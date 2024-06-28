@@ -4,7 +4,7 @@ This project involves controlling a network of bot computers using hidden messag
 # Instructions
 
 1. Put the dropbox token into .env
-2. Make sure you're in the `the-great-journey` directory
+2. Make sure you're in the root directory
 3. Run the bots with `docker-compose up --build`
 4. Run the controller via `python -m controller.controller ${DROPBOX_TOKEN}` or `python3 -m controller.controller ${DROPBOX_TOKEN}`
 5. You should see the controller say `Conroller is aware of 3 bots`
