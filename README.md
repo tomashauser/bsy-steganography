@@ -1,3 +1,6 @@
+# Description
+This project involves controlling a network of bot computers using hidden messages transmitted through a shared Dropbox directory. Commands are sent to specific bots via a shared Dropbox account, ensuring the messages remain inconspicuous to the Dropbox owner. These commands are stealthily encoded using steganography techniques, such as embedding the messages in the pixels of images, or within video, mp3, or jar files.
+
 # Instructions
 
 1. Put the dropbox token into .env
@@ -19,8 +22,6 @@ In terms of dependencies for the controller.py, I think that this should be enou
 
 1. `pip install dropbox stegano psutil`
 2. `apt-get update && apt-get install -y libgl1-mesa-glx`
-
-If you have any problems with running the app, contact me on Matrix, I'm hauseto2.
 
 # Supported commands: 
 1. `[bot_num]: ls [path]?`
