@@ -1,5 +1,5 @@
 # Description
-This project involves controlling a network of bot computers using hidden messages transmitted through a shared Dropbox directory. Commands are sent to specific bots via a shared Dropbox account, ensuring the messages remain inconspicuous to the Dropbox owner. These commands are stealthily encoded using steganography techniques, such as embedding the messages in the pixels of images, or within video, mp3, or jar files.
+This project is a completed assignment to a course in computer security (BSY]. It involves controlling a network of bot computers using hidden messages transmitted through a shared Dropbox directory. Commands are sent to specific bots via a shared Dropbox account, ensuring the messages remain inconspicuous to the Dropbox owner. These commands are stealthily encoded using steganography techniques, such as embedding the messages in the pixels of images, or within video, mp3, or jar files.
 
 # Instructions
 
